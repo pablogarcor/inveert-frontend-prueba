@@ -9,8 +9,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-router": "^5.2.0",
-    "antd": "^4.4.3"
+    "react-router-dom": "^5.2.0",
+    "antd": "^4.4.3",
+    "axios": "^0.19.2"
   },
   "scripts": {
     "start": "react-scripts start",
