@@ -3,6 +3,7 @@ import React from 'react';
 import {Layout} from "antd";
 import HeaderMain from "./components/header/HeaderMain";
 import PrimeraVista from "./screens/primeraVista/PrimeraVista";
+import SegundaVista from "./screens/segundaVista/SegundaVista";
 import {Switch,Route} from "react-router-dom";
 //Import Screens for the router configuration
 
@@ -15,6 +16,10 @@ function App() {
     <Layout>
       <HeaderMain/>
       <Switch>
+          <Route
+              path='/userDetail/:userNumber'
+              component={SegundaVista}
+          />
         <Route
           path='/'
           component={PrimeraVista}

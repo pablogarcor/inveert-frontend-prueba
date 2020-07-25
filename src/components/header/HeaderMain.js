@@ -11,7 +11,9 @@ const {Header}=Layout
 function HeaderMain() {
     return(
         <Header style={{background:"white"}}>
+            <Link to="/">
             <img className="logo" src={logo} alt="Prueba de inveert"/>
+            </Link>
         </Header>
     )
 }

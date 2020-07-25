@@ -1,25 +1,11 @@
-import React from "react";
-import {Layout,Row,Col,Button,Typography,Collapse,Table,Tabs,Skeleton} from "antd";
-import {SisternodeOutlined,ImportOutlined} from "@ant-design/icons";
+import React, {useState,useEffect} from "react";
+import {Layout,Row,Col,Typography,Table,Skeleton} from "antd";
+import {useHistory} from 'react-router-dom'
+import {getAllUsers} from "../../services/getAllUsers";
 
-const {Title,Text}=Typography
+const {Title}=Typography
 const {Content}=Layout
-const {Panel} = Collapse;
 
-const data=[
-    {
-        key:'1',
-        name:'Pablo Garcia',
-        email:'pablo@pablo.com',
-        phone:'+348829349234'
-    },
-    {
-        key:'2',
-        name:'Alba Gomez',
-        email:'alba@pablo.com',
-        phone:'+348345345'
-    }
-]
 const columns=[
     {
         title: 'Nombre y apellidos',
@@ -39,6 +25,12 @@ const columns=[
 ]
 
 function PrimeraVista(){
+    const history=useHistory()
+    const [loading,setLoading]=useState(true)
+    const [columnData,setColumnData]=useState([])
+    useEffect(()=>{
+            getAllUsers(setColumnData,setLoading).then()
+        },[]);
     return(
         <Content>
             <Row justify="center">
@@ -52,7 +44,17 @@ function PrimeraVista(){
                 </Col>
             </Row>
             <Row justify='center' align='middle' >
-                <Table dataSource={data} columns={columns}/>
+                <Table
+                    onRow={(record, rowIndex) => {
+                        return {
+                            onClick: event => {history.push({
+                                pathname:"/userDetail/"+record.key,
+                                state: {userId: record.key}
+                            })}
+                        };
+                    }}
+
+                    loading={loading} dataSource={columnData} columns={columns}/>
             </Row>
         </Content>
     )
