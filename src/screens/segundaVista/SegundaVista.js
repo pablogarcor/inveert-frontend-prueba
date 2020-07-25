@@ -1,5 +1,4 @@
 import React, {useState,useEffect} from "react";
-import logo from '../../assets/images/Logotipo-Inveert-Fondo-Blanco-copy.png'
 import {Layout,Row,Col,Typography,Form,Input,Skeleton,Card,Avatar,Collapse} from "antd";
 import {UserOutlined,BankOutlined,PhoneOutlined,MailOutlined,MessageOutlined,BookOutlined,HomeOutlined,EnvironmentOutlined} from "@ant-design/icons";
 import {useHistory} from 'react-router-dom'
@@ -40,7 +39,6 @@ function SegundaVista(){
     const [userInfo,setUserInfo]=useState([])
     const [userId,setUserId]=useState(1)
     useEffect(()=>{
-        console.log(history)
         //idx es una funcion existencial para objetos anidados, si no existe alguna de las propiedades devuelve null
         if(idx(history,(_)=>_.location.state.userId)){
             getSingleUser(history.location.state.userId,setUserInfo,setUserId,setLoading).then()
@@ -50,7 +48,7 @@ function SegundaVista(){
 
         setUserId(history.location.state.userId)
 
-    },[]);
+    },[history]);
     return(
         <Content>
             <Row justify="center">

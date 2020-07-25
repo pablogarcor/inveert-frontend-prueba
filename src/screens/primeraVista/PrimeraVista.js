@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import {Layout,Row,Col,Typography,Table,Skeleton} from "antd";
+import {Layout,Row,Col,Typography,Table} from "antd";
 import {useHistory} from 'react-router-dom'
 import {getAllUsers} from "../../services/getAllUsers";
 
