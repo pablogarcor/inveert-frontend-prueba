@@ -1,7 +1,6 @@
 import React from 'react';
 //Import UI Framework components
 import {Layout} from "antd";
-import HeaderMain from "./components/header/HeaderMain";
 import PrimeraVista from "./screens/primeraVista/PrimeraVista";
 import SegundaVista from "./screens/segundaVista/SegundaVista";
 import {Switch,Route} from "react-router-dom";
@@ -14,7 +13,6 @@ import './App.css';
 function App() {
   return (
     <Layout>
-      <HeaderMain/>
       <Switch>
           <Route
               path='/userDetail/:userNumber'

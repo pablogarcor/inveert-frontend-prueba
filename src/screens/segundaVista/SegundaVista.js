@@ -4,6 +4,7 @@ import {UserOutlined,BankOutlined,PhoneOutlined,MailOutlined,MessageOutlined,Boo
 import {useHistory} from 'react-router-dom'
 import idx from   'idx'
 import {getSingleUser} from "../../services/getSingleUser";
+import HeaderMain from "../../components/header/HeaderMain";
 
 const {Title}=Typography
 const {Content}=Layout
@@ -58,71 +59,75 @@ function SegundaVista(){
 
     },[history]);
     return(
-        <Content>
-            <Row justify="center">
-                <Col className="padding-10">
-                    <Title level={1} strong style={{marginTop:"10px",fontSize:"20px",fontWeight:"800"}}>PRUEBA INVEERT FRONTEND</Title>
-                </Col>
-            </Row>
-            <Row justify="center">
-                <Col className="padding-10">
-                    <Title level={2} strong style={{marginTop:"50px"}}>Tabla de la <b style={{color: "rgb(0, 139, 154)"}}>segunda</b> vista</Title>
-                </Col>
-            </Row>
-            <Row justify="center">
-                <Col className="padding-10">
-                    <Title level={2} strong underline>Vista detalle del usuario <b style={{color: "rgb(0, 139, 154)"}}>nº {userId}</b></Title>
-                </Col>
-            </Row>
-            <Row justify='center' align='middle' style={{background:"white"}}>
-                <Col span={8}>
-                    <Skeleton loading={loading} active>
-                        <Card
-                            style={{width:"100%",margin:"20px 0"}}
-                        >
-                            <Meta
-                                avatar={<Avatar size={64} icon={<UserOutlined />} />}
-                                title={userInfo.name}
-                                description={userInfo.username}
-                            />
-                        </Card>
-                        <Form layout='vertical' style={{width:"100%"}}>
-                            <Form.Item label="Telefono:">
-                                <Input disabled defaultValue={userInfo.phone} addonBefore={<PhoneOutlined />}/>
-                            </Form.Item>
-                            <Form.Item label="Email:">
-                                <Input disabled defaultValue={userInfo.email} addonBefore={<MailOutlined />}/>
-                            </Form.Item>
-                        </Form>
-                        <Collapse >
-                            <Panel header="Empresa" key="1" extra={<BankOutlined />}>
-                                <Form layout='vertical' style={{width:"100%"}}>
-                                    <Form.Item label="Nombre:">
-                                        <Input disabled defaultValue={idx(userInfo,(_)=>_.company.name)} addonBefore={<BankOutlined />}/>
-                                    </Form.Item>
-                                    <Form.Item label="Lema:">
-                                        <Input disabled defaultValue={idx(userInfo,(_)=>_.company.catchPhrase)} addonBefore={<MessageOutlined />}/>
-                                    </Form.Item>
-                                    <Form.Item label="B.S.:">
-                                        <Input disabled defaultValue={idx(userInfo,(_)=>_.company.bs)} addonBefore={<BookOutlined />}/>
-                                    </Form.Item>
-                                </Form>
-                            </Panel>
-                            <Panel header="Dirección" key="2" extra={<EnvironmentOutlined />}>
-                                <Form layout='vertical' style={{width:"100%"}}>
-                                    <Form.Item label="Calle:">
-                                        <Input disabled defaultValue={idx(userInfo,(_)=>_.address.street)} addonBefore={<EnvironmentOutlined />}/>
-                                    </Form.Item>
-                                    <Form.Item label="Ciudad:">
-                                        <Input disabled defaultValue={idx(userInfo,(_)=>_.address.city)} addonBefore={<HomeOutlined />}/>
-                                    </Form.Item>
-                                </Form>
-                            </Panel>
-                        </Collapse>,
-                    </Skeleton>
-                </Col>
-            </Row>
-        </Content>
+        <Layout>
+            <HeaderMain/>
+            <Content>
+                <Row justify="center">
+                    <Col className="padding-10">
+                        <Title level={1} strong style={{marginTop:"10px",fontSize:"20px",fontWeight:"800"}}>PRUEBA INVEERT FRONTEND</Title>
+                    </Col>
+                </Row>
+                <Row justify="center">
+                    <Col className="padding-10">
+                        <Title level={2} strong style={{marginTop:"50px"}}>Tabla de la <b style={{color: "rgb(0, 139, 154)"}}>segunda</b> vista</Title>
+                    </Col>
+                </Row>
+                <Row justify="center">
+                    <Col className="padding-10">
+                        <Title level={2} strong underline>Vista detalle del usuario <b style={{color: "rgb(0, 139, 154)"}}>nº {userId}</b></Title>
+                    </Col>
+                </Row>
+                <Row justify='center' align='middle' style={{background:"white"}}>
+                    <Col span={8}>
+                        <Skeleton loading={loading} active>
+                            <Card
+                                style={{width:"100%",margin:"20px 0"}}
+                            >
+                                <Meta
+                                    avatar={<Avatar size={64} icon={<UserOutlined />} />}
+                                    title={userInfo.name}
+                                    description={userInfo.username}
+                                />
+                            </Card>
+                            <Form layout='vertical' style={{width:"100%"}}>
+                                <Form.Item label="Telefono:">
+                                    <Input disabled defaultValue={userInfo.phone} addonBefore={<PhoneOutlined />}/>
+                                </Form.Item>
+                                <Form.Item label="Email:">
+                                    <Input disabled defaultValue={userInfo.email} addonBefore={<MailOutlined />}/>
+                                </Form.Item>
+                            </Form>
+                            <Collapse >
+                                <Panel header="Empresa" key="1" extra={<BankOutlined />}>
+                                    <Form layout='vertical' style={{width:"100%"}}>
+                                        <Form.Item label="Nombre:">
+                                            <Input disabled defaultValue={idx(userInfo,(_)=>_.company.name)} addonBefore={<BankOutlined />}/>
+                                        </Form.Item>
+                                        <Form.Item label="Lema:">
+                                            <Input disabled defaultValue={idx(userInfo,(_)=>_.company.catchPhrase)} addonBefore={<MessageOutlined />}/>
+                                        </Form.Item>
+                                        <Form.Item label="B.S.:">
+                                            <Input disabled defaultValue={idx(userInfo,(_)=>_.company.bs)} addonBefore={<BookOutlined />}/>
+                                        </Form.Item>
+                                    </Form>
+                                </Panel>
+                                <Panel header="Dirección" key="2" extra={<EnvironmentOutlined />}>
+                                    <Form layout='vertical' style={{width:"100%"}}>
+                                        <Form.Item label="Calle:">
+                                            <Input disabled defaultValue={idx(userInfo,(_)=>_.address.street)} addonBefore={<EnvironmentOutlined />}/>
+                                        </Form.Item>
+                                        <Form.Item label="Ciudad:">
+                                            <Input disabled defaultValue={idx(userInfo,(_)=>_.address.city)} addonBefore={<HomeOutlined />}/>
+                                        </Form.Item>
+                                    </Form>
+                                </Panel>
+                            </Collapse>,
+                        </Skeleton>
+                    </Col>
+                </Row>
+            </Content>
+        </Layout>
+
     )
 }
 export default SegundaVista
