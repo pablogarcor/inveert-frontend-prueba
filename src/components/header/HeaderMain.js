@@ -1,14 +1,13 @@
 import React, {useState,useEffect} from "react";
+//Internal exports
+import logo from '../../assets/images/Logotipo-Inveert-Fondo-Blanco-copy.png'
+//External exports
 import {LeftOutlined} from "@ant-design/icons";
 import idx from 'idx'
 import {useHistory} from 'react-router-dom'
-//Import images
-import logo from '../../assets/images/Logotipo-Inveert-Fondo-Blanco-copy.png'
-//Import UI components
 import {Layout,Typography} from "antd";
-//Import Router components
 import {Link} from 'react-router-dom'
-//Instantiate UI components
+//Global constants and objects
 const {Header}=Layout
 const {Title}=Typography
 

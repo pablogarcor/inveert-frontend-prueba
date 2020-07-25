@@ -31,22 +31,22 @@ function PrimeraVista(){
     const [loading,setLoading]=useState(true)
     const [columnData,setColumnData]=useState([])
     useEffect(()=>{
-            getAllUsers(setColumnData,setLoading).then((response)=>{
-                const processedResponse=response.data.map(user=>({key:user.id,name:user.name,email:user.email,phone:user.phone}))
-                setColumnData(processedResponse)
-            }).catch(()=>{
-                notification.error({
-                    message:"Datos innaccesibles",
-                    description:"No se ha podido acceder a los datos de los usuarios",
-                    duration:10,
-                    onClick:()=>{
+        getAllUsers(setColumnData,setLoading).then((response)=>{
+            const processedResponse=response.data.map(user=>({key:user.id,name:user.name,email:user.email,phone:user.phone}))
+            setColumnData(processedResponse)
+        }).catch(()=>{
+            notification.error({
+                message:"Datos innaccesibles",
+                description:"No se ha podido acceder a los datos de los usuarios",
+                duration:10,
+                onClick:()=>{
 
-                    }
-                })
-            }).finally(()=>{
-                setLoading(false)
-                })
-        },[]);
+                }
+            })
+        }).finally(()=>{
+            setLoading(false)
+        })
+    },[]);
     return(
         <Layout>
             <HeaderMain/>

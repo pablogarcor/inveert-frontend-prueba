@@ -1,11 +1,13 @@
 import React, {useState,useEffect} from "react";
+//Internal exports
+import {getSingleUser} from "../../services/getSingleUser";
+import HeaderMain from "../../components/header/HeaderMain";
+//External exports
 import {Layout, Row, Col, Typography, Form, Input, Skeleton, Card, Avatar, Collapse, notification} from "antd";
 import {UserOutlined,BankOutlined,PhoneOutlined,MailOutlined,MessageOutlined,BookOutlined,HomeOutlined,EnvironmentOutlined} from "@ant-design/icons";
 import {useHistory} from 'react-router-dom'
 import idx from   'idx'
-import {getSingleUser} from "../../services/getSingleUser";
-import HeaderMain from "../../components/header/HeaderMain";
-
+//Global constants and objects
 const {Title}=Typography
 const {Content}=Layout
 const {Meta}=Card
