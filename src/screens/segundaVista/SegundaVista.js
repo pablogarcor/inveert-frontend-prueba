@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import {Layout,Row,Col,Typography,Form,Input,Skeleton,Card,Avatar,Collapse} from "antd";
+import {Layout, Row, Col, Typography, Form, Input, Skeleton, Card, Avatar, Collapse, notification} from "antd";
 import {UserOutlined,BankOutlined,PhoneOutlined,MailOutlined,MessageOutlined,BookOutlined,HomeOutlined,EnvironmentOutlined} from "@ant-design/icons";
 import {useHistory} from 'react-router-dom'
 import idx from   'idx'
@@ -41,12 +41,20 @@ function SegundaVista(){
     useEffect(()=>{
         //idx es una funcion existencial para objetos anidados, si no existe alguna de las propiedades devuelve null
         if(idx(history,(_)=>_.location.state.userId)){
-            getSingleUser(history.location.state.userId,setUserInfo,setUserId,setLoading).then()
+            getSingleUser(history.location.state.userId).then(response=> {
+                setUserInfo(response.data)
+                setUserId(response.userId)
+            }).catch(()=> notification.error({
+                message:"Datos innaccesibles",
+                description:"No se ha podido acceder a los datos de los usuarios",
+                duration:10,
+                onClick:()=>{
+
+                }
+            })).finally(()=>{setLoading(false)})
         }else{
             history.push({pathname:'/'})
         }
-
-        setUserId(history.location.state.userId)
 
     },[history]);
     return(
