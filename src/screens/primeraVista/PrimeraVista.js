@@ -63,6 +63,7 @@ function PrimeraVista(){
                 </Row>
                 <Row justify='center' align='middle' >
                     <Table
+                        className="user-table"
                         onRow={(record, rowIndex) => {
                             return {
                                 onClick: event => {history.push({

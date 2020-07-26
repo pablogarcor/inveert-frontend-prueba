@@ -1,7 +1,7 @@
 .ant-table {
     display: block;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 440px) {
     .ant-table-thead {
 
     }
