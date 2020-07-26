@@ -7,7 +7,6 @@ import {Switch,Route} from "react-router-dom";
 //Import Screens for the router configuration
 
 //Import styles
-import './styles/inveert-antd.css';
 import './App.css';
 
 function App() {

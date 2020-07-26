@@ -1,3 +1,5 @@
+@import "styles/inveert-antd.css";
+@import "styles/inveert-table-antd.css";
 .logo{
   height: 64px;
   float: left;
