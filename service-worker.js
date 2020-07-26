@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/inveert-frontend-prueba/precache-manifest.3aa6528e4dca4493796755e5a22bfb20.js"
+  "/inveert-frontend-prueba/precache-manifest.130e58dfc1083d87750903652c6668b3.js"
 );
 
 self.addEventListener('message', (event) => {
