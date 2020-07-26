@@ -1,10 +1,10 @@
 import React from 'react';
-//Import UI Framework components
-import {Layout} from "antd";
+//Internal exports
 import PrimeraVista from "./screens/primeraVista/PrimeraVista";
 import SegundaVista from "./screens/segundaVista/SegundaVista";
+//External exports
+import {Layout} from "antd";
 import {Switch,Route} from "react-router-dom";
-//Import Screens for the router configuration
 
 //Import styles
 import './App.css';

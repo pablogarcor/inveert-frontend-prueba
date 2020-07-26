@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 //Internal exports
-import {getSingleUser} from "../../services/getSingleUser";
+import {userGet} from "../../services/user/userGet";
 import HeaderMain from "../../components/header/HeaderMain";
 //External exports
 import {Layout, Row, Col, Typography, Form, Input, Skeleton, Card, Avatar, Collapse, notification} from "antd";
@@ -44,7 +44,7 @@ function SegundaVista(){
     useEffect(()=>{
         //idx es una funcion existencial para objetos anidados, si no existe alguna de las propiedades devuelve null
         if(idx(history,(_)=>_.location.state.userId)){
-            getSingleUser(history.location.state.userId).then(response=> {
+            userGet(history.location.state.userId).then(response=> {
                 setUserInfo(response.data)
                 setUserId(response.data.id)
             }).catch(()=> notification.error({
@@ -66,17 +66,14 @@ function SegundaVista(){
             <Content>
                 <Row justify="center">
                     <Col className="padding-10">
-                        <Title level={1} strong style={{marginTop:"10px",fontSize:"20px",fontWeight:"800"}}>PRUEBA INVEERT FRONTEND</Title>
-                    </Col>
-                </Row>
-                <Row justify="center">
-                    <Col className="padding-10">
                         <Title level={2} strong style={{marginTop:"50px"}}>Tabla de la <b style={{color: "rgb(0, 139, 154)"}}>segunda</b> vista</Title>
                     </Col>
                 </Row>
-                <Row justify="center">
+                <Row justify="center" style={{background:"white"}}>
                     <Col className="padding-10">
-                        <Title level={2} strong underline>Vista detalle del usuario <b style={{color: "rgb(0, 139, 154)"}}>nº {userId}</b></Title>
+                        <Skeleton loading={loading} active>
+                            <Title level={2} strong underline>Vista detalle del usuario <b style={{color: "rgb(0, 139, 154)"}}>nº {userId}</b></Title>
+                        </Skeleton>
                     </Col>
                 </Row>
                 <Row justify='center' align='middle' style={{background:"white"}}>

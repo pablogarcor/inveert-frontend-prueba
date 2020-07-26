@@ -22,9 +22,9 @@ function HeaderMain() {
         }
     },[history])
     return(
-        <Header style={{background:"white"}}>
-            <Link to="/">
-            <img className="logo" src={logo} alt="Prueba de inveert"/>
+        <Header style={{background:"white", padding: "0 10px"}}>
+            <Link to="/inveert-frontend-prueba">
+                <img className="logo" src={logo} alt="Prueba de inveert"/>
             </Link>
             {isMenuVisible &&
             <Title style={{color:'black', lineHeight: '64px', float: "right", cursor:'pointer'}} level={4} strong onClick={()=> {

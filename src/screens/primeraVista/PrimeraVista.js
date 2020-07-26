@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 //Internal exports
-import {getAllUsers} from "../../services/getAllUsers";
+import {userGetAll} from "../../services/user/userGetAll";
 import HeaderMain from "../../components/header/HeaderMain";
 //External exports
 import {Layout, Row, Col, Typography, Table, notification} from "antd";
@@ -30,8 +30,25 @@ function PrimeraVista(){
     const history=useHistory()
     const [loading,setLoading]=useState(true)
     const [columnData,setColumnData]=useState([])
+    /*
+        columnData[
+            User1{
+                key,
+                name,
+                phone,
+                email
+            },
+            User2{
+                key,
+                name,
+                phone,
+                email
+            }
+            ...
+        ]
+     */
     useEffect(()=>{
-            getAllUsers(setColumnData,setLoading).then((response)=>{
+            userGetAll(setColumnData,setLoading).then((response)=>{
                 const processedResponse=response.data.map(user=>({key:user.id,name:user.name,email:user.email,phone:user.phone}))
                 setColumnData(processedResponse)
             }).catch(()=>{
@@ -53,17 +70,13 @@ function PrimeraVista(){
             <Content>
                 <Row justify="center">
                     <Col className="padding-10">
-                        <Title level={1} strong style={{marginTop:"10px",fontSize:"20px",fontWeight:"800"}}>PRUEBA INVEERT FRONTEND</Title>
-                    </Col>
-                </Row>
-                <Row justify="center">
-                    <Col className="padding-10">
                         <Title level={2} strong style={{marginTop:"50px"}}>Tabla de la <b style={{color: "rgb(0, 139, 154)"}}>primera</b> vista</Title>
                     </Col>
                 </Row>
                 <Row justify='center' align='middle' >
                     <Table
                         className="user-table"
+                        pagination={{defaultPageSize:5}}
                         onRow={(record, rowIndex) => {
                             return {
                                 onClick: event => {history.push({
