@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4a4f95cc53bd932e178c233959c30c6a",
+    "revision": "c7551343e69cd5d46cb2418ae163b32c",
     "url": "/inveert-frontend-prueba/index.html"
   },
   {
-    "revision": "9bcb8d791b00f24eee63",
+    "revision": "104b0410051ada5e189c",
     "url": "/inveert-frontend-prueba/static/css/main.046e69a4.chunk.css"
   },
   {
-    "revision": "7e3b309ccebcbd07b994",
-    "url": "/inveert-frontend-prueba/static/js/2.37298ff4.chunk.js"
+    "revision": "5880320ca0fcaa9a821f",
+    "url": "/inveert-frontend-prueba/static/js/2.ea4036ff.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/inveert-frontend-prueba/static/js/2.37298ff4.chunk.js.LICENSE.txt"
+    "url": "/inveert-frontend-prueba/static/js/2.ea4036ff.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9bcb8d791b00f24eee63",
-    "url": "/inveert-frontend-prueba/static/js/main.e862e960.chunk.js"
+    "revision": "104b0410051ada5e189c",
+    "url": "/inveert-frontend-prueba/static/js/main.f4ef64f0.chunk.js"
   },
   {
     "revision": "f0cf6f82db18ddbb532e",
