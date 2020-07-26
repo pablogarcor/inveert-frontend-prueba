@@ -15,7 +15,7 @@ function HeaderMain() {
     const history=useHistory()
     const [isMenuVisible,setIsMenuVisible]=useState(false)
     useEffect(()=>{
-        if(idx(history,(_)=>_.location.pathname)==='/inveert-frontend-prueba'){
+        if(idx(history,(_)=>_.location.pathname)==='/inveert-frontend-prueba' || idx(history,(_)=>_.location.pathname)==='pablogarcor.github.io/inveert-frontend-prueba'){
             setIsMenuVisible(false)
         }else{
             setIsMenuVisible(true)
