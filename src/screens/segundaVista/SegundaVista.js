@@ -46,7 +46,7 @@ function SegundaVista(){
         if(idx(history,(_)=>_.location.state.userId)){
             getSingleUser(history.location.state.userId).then(response=> {
                 setUserInfo(response.data)
-                setUserId(response.userId)
+                setUserId(response.data.id)
             }).catch(()=> notification.error({
                 message:"Datos innaccesibles",
                 description:"No se ha podido acceder a los datos de los usuarios",
@@ -80,7 +80,7 @@ function SegundaVista(){
                     </Col>
                 </Row>
                 <Row justify='center' align='middle' style={{background:"white"}}>
-                    <Col span={8}>
+                    <Col xs={24} sm={18} md={14} lg={10} xl={8}>
                         <Skeleton loading={loading} active>
                             <Card
                                 style={{width:"100%",margin:"20px 0"}}

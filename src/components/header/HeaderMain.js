@@ -15,7 +15,6 @@ function HeaderMain() {
     const history=useHistory()
     const [isMenuVisible,setIsMenuVisible]=useState(false)
     useEffect(()=>{
-        debugger
         if(idx(history,(_)=>_.location.pathname)==='/inveert-frontend-prueba'){
             setIsMenuVisible(false)
         }else{
